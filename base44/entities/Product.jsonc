@@ -1,0 +1,69 @@
+{
+  "name": "Product",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "tagline": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "price": {
+      "type": "number"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "audio",
+        "wearables",
+        "footwear",
+        "objects",
+        "lighting"
+      ],
+      "default": "objects"
+    },
+    "image_url": {
+      "type": "string"
+    },
+    "accent_color": {
+      "type": "string",
+      "default": "#0A1F44"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    },
+    "material": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name",
+    "price",
+    "category"
+  ],
+  "rls": {
+    "read": true,
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

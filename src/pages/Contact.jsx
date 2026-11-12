@@ -1,0 +1,9 @@
+import ContactForm from '@/components/contact/ContactForm';
+import StudioFooter from '@/components/StudioFooter';
+export default function Contact() {
+  return <div>
+    <section className="px-6 pb-16 pt-16 md:px-20 md:pt-24"><span className="font-mono text-[10px] uppercase tracking-widest text-accent">/ Contact</span><h1 className="mt-4 font-heading text-[12vw] font-black leading-[0.85] tracking-[-0.05em] md:text-[8vw]">Say<br/><span className="font-light italic">hello.</span></h1><p className="mt-8 max-w-lg font-mono text-sm leading-relaxed text-muted-foreground">Questions about the collection, the spatial experience, or this storefront? Leave a message for the site administrator.</p></section>
+    <section className="grid gap-12 px-6 pb-24 md:grid-cols-12 md:px-20"><div className="md:col-span-7"><ContactForm/></div><aside className="space-y-8 md:col-span-5"><div className="glass rounded-2xl p-6"><h2 className="mb-5 font-mono text-xs uppercase tracking-widest text-accent">The Atelier · Demo profile</h2><p className="text-lg font-semibold">An imagined studio in Budapest.</p><p className="mt-4 text-sm leading-relaxed text-muted-foreground">KINETIC is a fictional brand created to demonstrate a spatial storefront. Product images, prices and studio stories are sample content, not commercial offers.</p></div><div className="rounded-2xl border border-border bg-card p-6"><h2 className="mb-3 font-mono text-xs uppercase tracking-widest text-accent">What happens next?</h2><p className="text-sm leading-relaxed text-muted-foreground">Submitting the form saves your message for administrator review. It does not make a booking, create a membership or start a purchase.</p></div></aside></section>
+    <StudioFooter/>
+  </div>;
+}

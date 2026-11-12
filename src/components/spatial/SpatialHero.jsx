@@ -1,0 +1,18 @@
+import {lazy,Suspense} from 'react';
+import {Link} from 'react-router-dom';
+import {ArrowUpRight,ArrowDownRight,MoveUpRight,Loader2} from 'lucide-react';
+const ModelCanvas=lazy(()=>import('@/components/spatial/ModelCanvas'));
+const heroProduct={name:'Aether One Headphones',category:'audio',image_url:'https://media.base44.com/images/public/6ac95edd9b314bf3dcf60bab/09b9ede11_hf_20260403_164602_4b85a393-546a-459f-8beb-8ce41312fea5.png'};
+export default function SpatialHero({archive=false}) {
+  return <section className="relative mx-auto max-w-[1600px] overflow-hidden px-6 pb-12 pt-10 md:px-10 md:pb-16 lg:px-16 lg:pt-14">
+    <div className="mb-9 flex items-center justify-between border-b border-border pb-5 font-mono text-[9px] uppercase tracking-[.2em] text-muted-foreground"><span>Kinetic / {archive?'Object archive':'Spatial commerce'} / Vol. 02</span><span className="hidden items-center gap-2 sm:flex"><span className="h-1.5 w-1.5 rounded-full bg-accent"/>An exploration in form</span></div>
+    <div className="grid gap-8 lg:grid-cols-[1.05fr_1fr] lg:gap-4">
+      <div className="relative z-10 flex flex-col justify-center py-3"><span className="mb-6 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[.2em] text-accent"><span className="h-px w-8 bg-accent"/>{archive?'Designed to be discovered':'Objects. Not ordinary.'}</span>
+        <h1 className="font-display text-[clamp(4.5rem,8.8vw,8.5rem)] font-black uppercase leading-[.86] tracking-[-.065em]">{archive?'The':'Beyond'}<br/><span className="spatial-outline">{archive?'collection':'the object'}<span className="text-accent">.</span></span></h1>
+        <div className="mt-8 flex items-start gap-5"><ArrowDownRight className="mt-1 hidden h-7 w-7 shrink-0 text-accent sm:block"/><p className="max-w-xs text-sm leading-relaxed text-muted-foreground">{archive?'Distinctive objects. A new perspective on each. Explore the collection, rotate a concept, find your own point of view.':'Form you can explore. Details you can discover. Step into a living collection of objects, made for a different point of view.'}</p></div>
+        <div className="mt-8 flex flex-wrap items-center gap-6"><Link to={archive?'#collection':'/products'} className="inline-flex min-h-12 items-center gap-6 rounded-full bg-accent px-6 font-mono text-[10px] uppercase tracking-widest text-accent-foreground hover:opacity-90">{archive?'Explore objects':'Enter the archive'}<ArrowUpRight className="h-4 w-4"/></Link><Link to="/about" className="inline-flex min-h-11 items-center gap-2 font-mono text-[10px] uppercase tracking-wider text-muted-foreground hover:text-foreground">Our philosophy<MoveUpRight className="h-3 w-3"/></Link></div>
+      </div>
+      <div className="relative min-w-0"><div className="h-[360px] overflow-hidden rounded-2xl border border-border sm:h-[440px] lg:h-[490px]"><Suspense fallback={<div className="spatial-stage flex h-full items-center justify-center"><Loader2 className="h-6 w-6 animate-spin text-accent"/></div>}><ModelCanvas product={heroProduct}/></Suspense></div><div className="mt-4 flex items-center justify-between"><div><p className="font-mono text-[9px] uppercase tracking-[.2em] text-muted-foreground">Form study / 001</p><p className="mt-1 text-sm font-medium">Aether One — acoustic architecture</p></div><Link to="/products?category=audio" aria-label="Audio kollekció" className="flex h-11 w-11 items-center justify-center rounded-full border border-border hover:bg-accent hover:text-accent-foreground"><ArrowUpRight className="h-4 w-4"/></Link></div></div>
+    </div>
+  </section>;
+}
